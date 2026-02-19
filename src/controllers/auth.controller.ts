@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { User } from '../models/User'; 
+import { User } from '../models/User';
 import { JwtPayload } from '../types/auth';
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
@@ -14,7 +14,7 @@ import { UserRole } from '../types/auth';
 
 export const register = async (req: Request, res: Response) => {
   try {
-    // Eliminamos 'role' del req.body
+
     const { username, email, password } = req.body;
 
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -28,7 +28,7 @@ export const register = async (req: Request, res: Response) => {
       username,
       email,
       password: hashedPassword,
-      role: UserRole.DUENIO // <-- Rol forzado por seguridad
+      role: UserRole.DUENIO
     });
 
     await newUser.save();

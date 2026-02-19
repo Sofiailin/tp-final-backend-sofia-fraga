@@ -215,7 +215,7 @@ body {
     margin-top: 25px;
     box-shadow: 0 5px 15px var(--shadow);
 }
-/* 1. Ajuste del contenedor para una lista vertical limpia */
+
 .pets-grid {
     display: flex;
     flex-direction: column;
@@ -225,17 +225,16 @@ body {
     width: 100%;
 }
 
-/* 2. Transformación de la Card en Grid Interno */
 .pet-card {
     background: var(--white);
     padding: 35px;
     border-radius: 25px;
     box-shadow: 0 10px 30px var(--shadow);
     border-left: 10px solid var(--primary);
-    
-    /* Configuración del Grid Interno */
+
+
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "header actions"
         "details details"
         "medical medical"
@@ -246,7 +245,6 @@ body {
     width: 100%;
 }
 
-/* Cabecera: Nombre y Especie */
 .pet-header-card {
     grid-area: header;
 }
@@ -257,7 +255,6 @@ body {
     line-height: 1.2;
 }
 
-/* Detalles básicos (Edad, etc.) */
 .pet-details {
     grid-area: details;
     font-weight: 600;
@@ -265,7 +262,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* Bloque de Información Médica Organizado */
 .medical-info-box {
     grid-area: medical;
     background: var(--bg-light);
@@ -291,7 +287,6 @@ body {
     opacity: 0.8;
 }
 
-/* Pie de tarjeta y Acciones */
 .pet-footer-card {
     grid-area: footer;
     font-size: 0.9rem;
@@ -306,8 +301,8 @@ body {
     align-self: start;
 }
 
-/* Botones con estilo mejorado */
-.btn-edit-card, .btn-delete-card {
+.btn-edit-card,
+.btn-delete-card {
     padding: 10px 20px;
     border-radius: 12px;
     border: none;
@@ -316,10 +311,21 @@ body {
     transition: 0.3s;
 }
 
-.btn-edit-card { background: var(--accent); color: var(--secondary); }
-.btn-delete-card { background: #ff4d6d; color: white; }
+.btn-edit-card {
+    background: var(--accent);
+    color: var(--secondary);
+}
 
-.btn-delete-card:hover { transform: scale(1.05); background: #c9184a; }
+.btn-delete-card {
+    background: #ff4d6d;
+    color: white;
+}
+
+.btn-delete-card:hover {
+    transform: scale(1.05);
+    background: #c9184a;
+}
+
 /* FOOTER */
 footer {
     background: var(--secondary);
