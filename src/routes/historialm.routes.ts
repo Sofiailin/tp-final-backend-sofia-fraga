@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { body } from 'express-validator'; 
+import { body } from 'express-validator';
 import * as historialmController from '../controllers/historialm.controller';
 import { authenticate, authorize } from '../middlewares/auth.middleware';
 import { UserRole } from '../types/auth';
@@ -11,7 +11,6 @@ router.post(
   authenticate,
   authorize([UserRole.VETERINARIO, UserRole.ADMIN]),
   [
-    // Validaciones:
     body('petId').isMongoId().withMessage('ID de mascota inválido'),
     body('descripcion').notEmpty().withMessage('La descripción es obligatoria'),
     body('diagnostico').optional().isString(),
@@ -20,7 +19,7 @@ router.post(
   historialmController.createEntry
 );
 
-// GET: Ver historial
+
 router.get(
   '/:petId',
   authenticate,

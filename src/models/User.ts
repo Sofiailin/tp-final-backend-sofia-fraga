@@ -1,4 +1,3 @@
-// src/models/user.ts
 import mongoose, { Schema, Document } from 'mongoose';
 import { UserRole } from '../types/auth';
 
@@ -31,10 +30,8 @@ const userSchema = new Schema<IUser>(
   { timestamps: true }
 );
 
-// EXPORTACIÓN NOMBRADA Y SEGURA (Esto evita el "Cannot read properties of undefined")
 export const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema);
 
-// También exportamos las funciones por si las usas en otros lados
 export const findUserByEmail = async (email: string) => {
   return await User.findOne({ email });
 };

@@ -4,7 +4,6 @@ import { getDuenios } from '../controllers/user.controller';
 
 const router = Router();
 
-// Ruta: /api/users/duenios
 router.get('/duenios', authenticate, getDuenios);
 
 export default router;
